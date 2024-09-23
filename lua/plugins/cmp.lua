@@ -9,7 +9,6 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
-		local lspkind = require("lspkind")
 
 		cmp.setup({
 			sources = cmp.config.sources({
