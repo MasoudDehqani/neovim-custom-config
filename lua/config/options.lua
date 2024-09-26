@@ -1,23 +1,56 @@
--- copy to the system clipboard by yanking
-vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.opt.mouse = "a"
+local opt = vim.opt
+
+-- opt.completeopt = { "menu", "menuone", "noselect" }
+opt.mouse = "a"
 
 -- enabling flash search
 require("flash").toggle()
 
-vim.opt.number = true
-vim.wo.relativenumber = true
-
-vim.opt.termbidi = true
-vim.opt.encoding = "utf-8"
+opt.termbidi = true
+opt.encoding = "utf-8"
 -- vim.opt.fileencoding = "utf-8"
 -- vim.opt.guifont = "Vazirmatn"
 
--- Tab
-vim.opt.tabstop = 2 -- number of visual spaces per TAB
-vim.opt.softtabstop = 2 -- number of spacesin tab when editing
-vim.opt.shiftwidth = 2 -- insert 4 spaces on a tab
-vim.opt.expandtab = true -- tabs are spaces, mainly because of python
+-- opt.termguicolors = true
 
-vim.opt.termguicolors = true
+-- line numbers
+opt.relativenumber = true -- show relative line numbers
+opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+
+-- tabs & indentation
+opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.expandtab = true -- expand tab to spaces
+opt.autoindent = true -- copy indent from current line when starting new one
+
+-- line wrapping
+opt.wrap = false -- disable line wrapping
+
+-- search settings
+opt.ignorecase = true -- ignore case when searching
+opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+
+-- cursor line
+opt.cursorline = true -- highlight the current cursor line
+
+-- appearance
+
+-- turn on termguicolors for nightfly colorscheme to work
+-- (have to use iterm2 or any other true color terminal)
+opt.termguicolors = true
+opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+
+-- backspace
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+
+-- clipboard
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- opt.clipboard = "unnamedplus"
+
+-- split windows
+opt.splitright = true -- split vertical window to the right
+opt.splitbelow = true -- split horizontal window to the bottom
+
+-- turn off swapfile
+opt.swapfile = false

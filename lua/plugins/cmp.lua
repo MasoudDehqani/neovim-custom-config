@@ -1,6 +1,5 @@
 return {
 	"hrsh7th/nvim-cmp",
-	version = false, -- last release is way too old
 	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
@@ -9,12 +8,17 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
+		local lspkind = require("lspkind")
 
 		cmp.setup({
+			completion = {
+				completeopt = "menu, menuone, preview, noselect",
+			},
+			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-			}, {
-				{ name = "buffer" },
+				{ name = "buffer" }, -- text within current buffer
+				{ name = "path" }, -- file system paths
 			}),
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),

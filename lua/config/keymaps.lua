@@ -1,8 +1,43 @@
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+local keymap = vim.keymap -- for conciseness
 
-vim.keymap.set("n", "gtd", "<cmd>Telescope lsp_definitions<cr>")
-vim.keymap.set("n", "gtr", "<cmd>Telescope lsp_references<cr>")
+-- set leader key to space
+vim.g.mapleader = " "
+
+-- Telescope keymaps
+local builtin = require("telescope.builtin")
+keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
+keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
+keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+
+keymap.set("n", "gtd", "<cmd>Telescope lsp_definitions<cr>")
+keymap.set("n", "gtr", "<cmd>Telescope lsp_references<cr>")
+keymap.set("n", "gti", "<cmd>Telescope lsp_implementations<cr>")
+
+---------------------
+-- General Keymaps -------------------
+
+-- use jk to exit insert mode
+keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+
+-- clear search highlights
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+
+-- delete single character without copying into register
+-- keymap.set("n", "x", '"_x')
+
+-- increment/decrement numbers
+keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
+keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+
+-- window management
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+
+keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab

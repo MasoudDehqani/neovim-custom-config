@@ -1,8 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"mason.nvim",
-		{ "williamboman/mason-lspconfig.nvim", config = function() end },
 		{
 			"SmiteshP/nvim-navbuddy",
 			dependencies = {
@@ -12,4 +11,9 @@ return {
 			opts = { lsp = { auto_attach = true } },
 		},
 	},
+	config = function()
+		local lspconfig = require("lspconfig")
+		lspconfig.rescriptls.setup({})
+		lspconfig.ts_ls.setup({})
+	end,
 }
