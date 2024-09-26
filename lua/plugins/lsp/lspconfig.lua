@@ -15,5 +15,6 @@ return {
 		local lspconfig = require("lspconfig")
 		lspconfig.rescriptls.setup({})
 		lspconfig.ts_ls.setup({})
+		lspconfig.lua_ls.setup({})
 	end,
 }
