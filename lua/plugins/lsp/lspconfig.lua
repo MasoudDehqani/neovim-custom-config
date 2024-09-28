@@ -16,5 +16,6 @@ return {
 		lspconfig.rescriptls.setup({})
 		lspconfig.ts_ls.setup({})
 		lspconfig.lua_ls.setup({})
+		lspconfig.tailwindcss.setup({})
 	end,
 }
