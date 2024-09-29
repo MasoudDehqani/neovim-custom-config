@@ -54,3 +54,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+vim.g.python3_host_prog = "/usr/bin/python"
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
