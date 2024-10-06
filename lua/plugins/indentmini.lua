@@ -3,8 +3,8 @@ return {
 	event = "BufEnter",
 	config = function()
 		require("indentmini").setup({
-			char = "|",
-			-- char = "▏",
+			-- char = "|",
+			char = "▏",
 			exclude = {
 				"erlang",
 				"markdown",
