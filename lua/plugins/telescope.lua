@@ -12,6 +12,22 @@ return {
 		local actions = require("telescope.actions")
 
 		telescope.setup({
+			-- pickers = { find_files = { find_command = { "rg", "--files", "--hidden", "-g", "!.git" } } },
+			-- pickers = {
+			-- 	find_files = {
+			-- 		find_command = {
+			-- 			"fd",
+			-- 			"--type",
+			-- 			"f",
+			-- 			"--color=never",
+			-- 			"--hidden",
+			-- 			"--follow",
+			-- 			"-E",
+			-- 			".git/*",
+			-- 		},
+			-- 	},
+			-- },
+			pickers = { find_files = { find_command = { "rg", "--ignore", "--hidden", "--files", "-u" } } },
 			defaults = {
 				-- path_display = { "smart" },
 				mappings = {
