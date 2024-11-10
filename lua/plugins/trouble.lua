@@ -5,6 +5,7 @@ return {
 		focus = true,
 	},
 	cmd = "Trouble",
+	lazy = true,
 	keys = {
 		{ "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", desc = "Open trouble workspace diagnostics" },
 		{
