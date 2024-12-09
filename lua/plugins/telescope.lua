@@ -27,7 +27,7 @@ return {
 			-- 		},
 			-- 	},
 			-- },
-			pickers = { find_files = { find_command = { "rg", "--ignore", "--hidden", "--files", "-u" } } },
+			-- pickers = { find_files = { find_command = { "rg", "--ignore", "--hidden", "--files", "-u" } } },
 			defaults = {
 				-- path_display = { "smart" },
 				mappings = {
