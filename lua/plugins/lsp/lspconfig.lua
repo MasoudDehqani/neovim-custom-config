@@ -67,14 +67,14 @@ return {
 
 		local servers = { "html", "cssls", "rescriptls", "ts_ls", "lua_ls", "tailwindcss", "rust_analyzer" }
 
-		local lspconfig = require("lspconfig")
-
 		for _, lsp in ipairs(servers) do
-			lspconfig[lsp].setup({
+			vim.lsp.config(lsp, {
 				on_attach = on_attach,
 				on_init = on_init,
 				capabilities = capabilities,
 			})
+
+			vim.lsp.enable(lsp)
 		end
 	end,
 }
