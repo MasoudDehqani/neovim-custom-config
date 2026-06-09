@@ -1,21 +1,18 @@
 return {
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
+	"williamboman/mason-lspconfig.nvim",
+	dependencies = {
+		"williamboman/mason.nvim",
+		"neovim/nvim-lspconfig",
+	},
+	cmd = { "Mason", "MasonInstall", "MasonUpdate" },
+	config = function()
+		local lsp_servers = require("config.lsp-servers")
 
-  config = function()
-    require("mason").setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    })
+		require("mason").setup()
 
-    require("mason-lspconfig").setup {
-      ensure_installed = { "lua_ls", "rust_analyzer" },
-    }
-  end,
+		require("mason-lspconfig").setup({
+			ensure_installed = lsp_servers.servers,
+			automatic_installation = false,
+		})
+	end,
 }

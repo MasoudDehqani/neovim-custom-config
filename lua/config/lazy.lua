@@ -31,6 +31,7 @@ require("lazy").setup({
 		-- import plugins & lsp
     -- stylua: ignore
 		{
+			-- { import = "plugins" },
 			{ import = "plugins", cond = function() return not vim.g.vscode end },
 			{ import = "plugins.lsp", cond = function() return not vim.g.vscode end },
 			{ import = "plugins_vscode", cond = function() return vim.g.vscode end },
