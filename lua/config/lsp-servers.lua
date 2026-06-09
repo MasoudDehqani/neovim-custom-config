@@ -20,6 +20,7 @@ M.server_settings = {
 		},
 	},
 	rust_analyzer = {
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" },
 		settings = {
 			["rust-analyzer"] = {
 				checkOnSave = true,
